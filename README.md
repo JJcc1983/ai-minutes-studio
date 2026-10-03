@@ -53,16 +53,30 @@
 
 ### 1. リポジトリのクローン
 ```bash
-git clone [https://github.com/JJcc1983/ai-minutes-studio.git](https://github.com/JJcc1983/ai-minutes-studio.git)
+git clone https://github.com/JJcc1983/ai-minutes-studio.git
 cd ai-minutes-studio
+```
 
-### 2. 環境変数の設定
+### 2. 依存パッケージの同期（環境構築）
+```powershell
+uv sync
+```
 
+### 3. 環境変数の設定
 Gemini APIキーを取得し、環境変数に設定します。
 
-Windows (PowerShell):
-$env:GEMINI_API_KEY="your_api_key_here"
+**Windows (PowerShell):**
+```powershell
+$env:GEMINI_API_KEY="your_gemini_api_key"
+```
 
-### 3. アプリの起動 (uv を利用)
+**Mac / Linux (Bash):**
+```bash
+export GEMINI_API_KEY="your_gemini_api_key"
+```
+
+### 4. アプリケーションの起動
+```powershell
 uv run streamlit run app.py
-ブラウザで自動的に http://localhost:8501 が開きます。
+```
+実行後、ブラウザで自動的に `http://localhost:8501` が開きます。

@@ -55,3 +55,14 @@
 ```bash
 git clone [https://github.com/JJcc1983/ai-minutes-studio.git](https://github.com/JJcc1983/ai-minutes-studio.git)
 cd ai-minutes-studio
+
+2. 環境変数の設定
+
+Gemini APIキーを取得し、環境変数に設定します。
+
+Windows (PowerShell):
+$env:GEMINI_API_KEY="your_api_key_here"
+
+3. アプリの起動 (uv を利用)
+uv run streamlit run app.py
+ブラウザで自動的に http://localhost:8501 が開きます。

@@ -1,5 +1,7 @@
 # 🎙️ AI Minutes Studio (AI議事録 ＆ 音声要約スタジオ)
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://ai-minutes-studio-iaozvbkdcyxptdmcsqobwr.streamlit.app/)
+
 音声ファイルや会議メモのテキストから、構造化された議事録やアクションアイテムを瞬時に自動生成するマルチモーダルWebアプリケーションです。  
 最新の **Google Gemini API** を活用し、LLMの実務導入で重要となる**トークン消費量および概算APIコストのリアルタイム可視化**を実装しています。
 

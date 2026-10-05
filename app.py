@@ -1,5 +1,6 @@
 # gemini-3.5-flash-lite
 
+import os
 import streamlit as st
 from google import genai
 from google.genai import types
@@ -42,7 +43,22 @@ if "total_cost_jpy" not in st.session_state:
 # --- サイドバー設定 ---
 with st.sidebar:
     st.header("⚙️ 設定 & 監視")
-    api_key = st.text_input("Gemini API Key", type="password", help="Google AI Studioで取得したAPIキーを入力")
+
+    # Secrets または環境変数からキーを取得
+    default_key = ""
+    if "GEMINI_API_KEY" in st.secrets:
+        default_key = st.secrets["GEMINI_API_KEY"]
+    elif os.environ.get("GEMINI_API_KEY"):
+        default_key = os.environ.get("GEMINI_API_KEY")
+
+    # 画面入力があればそれを優先、未入力ならSecretsのキーを使用
+    input_key = st.text_input(
+        "Gemini API Key",
+        type="password",
+        placeholder="システム設定済み（変更時のみ入力）" if default_key else "APIキーを入力",
+        help="空欄の場合はSecretsのキーが自動適用されます",
+    )
+    api_key = input_key if input_key else default_key
     
     st.markdown("---")
     st.markdown("### 📊 累計利用コスト・トークン")
